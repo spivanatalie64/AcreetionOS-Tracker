@@ -1,0 +1,33 @@
+---
+## Goal
+
+The user is trying to resolve a persistent 500 Internal Server Error when accessing the `/read` route of the `trans-tracker-101` Vercel deployment, specifically with the query parameter `url=https://dallasvoice.com/out-equal-announces-2026-workplace-summit/`. They also repeatedly requested the full conversation be output to a file named `test.gh`, asked for a recap of completed work, and required a structured summary using the provided template.
+
+## Instructions
+
+- Investigate and resolve the 500 error on the `/read?url=...` route of `https://trans-tracker-101.vercel.app`.
+- Output the entire conversation to a file named `test.gh` (requested 6+ times by the user).
+- Generate a conversation summary strictly following the provided template (sections: Goal, Instructions, Discoveries, Accomplished, Relevant files / directories).
+- Answer the user's "What did we do so far?" question via the Accomplished section of the summary.
+- Prioritize locating the `/read` route handler and identifying the error root cause to continue troubleshooting.
+
+## Discoveries
+
+- The `/read` route returns a 500 Internal Server Error for the specified URL parameter, with the error persisting across multiple "try again" requests from the user.
+- The application is deployed on Vercel (evidenced by the `vercel.app` domain).
+- A glob search for `**/pages/read*` (to locate the route handler under a common pages-based framework structure) returned no matching files, indicating the route may be in an `api/` directory, use a Next.js `app` router structure, or follow custom routing logic.
+- Only a partial version of `test.gh` exists, containing only the user's initial error report, not the full conversation requested later.
+
+## Accomplished
+
+- Acknowledged the user's initial 500 error report and multiple retry requests.
+- Attempted to locate the `/read` route handler via a glob search for `**/pages/read*`, which returned no results.
+- Created an initial partial version of `test.gh` with the user's first error message, but have not written the full conversation to the file as repeatedly requested.
+- No progress has been made on fixing the 500 error, as the route handler has not been identified.
+- Received the user's required summary template and are generating this summary to fulfill the recap request.
+
+## Relevant files / directories
+
+- `test.gh`: Partially written with initial error message content; user requests the full conversation be exported to this file. No other files have been read or edited.
+- Application route structure: Unknown, as the `/read` route handler was not found in `**/pages/read*`. Further investigation of `api/`, `app/`, or other framework-specific routing directories is needed.
+---

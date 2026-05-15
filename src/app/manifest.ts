@@ -1,1 +1,0 @@
-export default function manifest() { return { name: 'Trans Tracker 101', short_name: 'TransTracker', description: 'Tracking legislation, civil rights battles, and news.', start_url: '/', display: 'standalone', background_color: '#ffffff', theme_color: '#4f46e5', icons: [{ src: '/favicon.ico', sizes: 'any', type: 'image/x-icon' }] } }

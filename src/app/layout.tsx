@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,12 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AcreetionOS News Tracker",
   description: "Tracking Linux distro news, open source developments, security updates, and infrastructure changes across the ecosystem.",
-  manifest: "/manifest.json",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "AcreetionOS Tracker",
-  },
 };
 
 export const viewport: Viewport = {
@@ -44,9 +37,6 @@ export default function RootLayout({
         
         <footer className="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-8 mt-auto relative z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
-            <p className="mb-3">
-              <strong className="font-semibold text-slate-700 dark:text-slate-300">Analytics Disclaimer:</strong> We monitor basic site analytics to understand what articles are most read. This helps us curate and provide more of the relevant news and updates that you actually want to see.
-            </p>
             <p className="mb-4">
               Part of the <a href="https://acreetionos.org" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium">AcreetionOS</a> project ecosystem.
             </p>
@@ -55,8 +45,6 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
-
-        <Analytics />
       </body>
     </html>
   );

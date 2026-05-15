@@ -1,9 +1,7 @@
 import { fetchAllFeeds } from '@/lib/fetchFeeds';
-import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
-import { ExternalLink, Terminal, Shield, Cpu, Globe } from 'lucide-react';
+import { Terminal, Shield, Cpu, Globe, ExternalLink } from 'lucide-react';
 import { SourceCategory } from '@/config/sources';
-import { Sprungles } from '@/components/Sprungles';
 import { SourcesModal } from '@/components/SourcesModal';
 
 export const revalidate = 3600;
@@ -46,10 +44,6 @@ export default async function Home() {
             <h1 className="text-xl font-bold text-slate-900 dark:text-white">AcreetionOS News Tracker</h1>
           </div>
           <nav className="flex items-center gap-4">
-            <a href="/feed.xml" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 transition-colors flex items-center gap-1">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z" /><path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z" /></svg>
-              RSS
-            </a>
             <SourcesModal />
           </nav>
         </div>
@@ -105,12 +99,14 @@ export default async function Home() {
                   >
                     {item.source.name}
                   </a>
-                  <Link
-                    href={`/read?url=${encodeURIComponent(item.link)}`}
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-xs font-medium text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 bg-green-50 dark:bg-green-900/30 px-3 py-1.5 rounded-full"
                   >
-                    Read Clean <ExternalLink className="w-3 h-3" />
-                  </Link>
+                    Read Original <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
             </article>
@@ -126,8 +122,6 @@ export default async function Home() {
         )}
 
       </div>
-
-      <Sprungles />
     </main>
   );
 }
